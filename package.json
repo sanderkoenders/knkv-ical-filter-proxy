@@ -1,11 +1,14 @@
 {
   "name": "knkv-ical-filter-proxy",
   "version": "0.1.0",
-  "description": "",
+  "description": "An ICAL proxy for KNKV ical to filter irrelevant events",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Archcry/knkv-ical-filter-proxy"
+  },
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/index.js"
   },
   "keywords": [],
   "author": "Sander Koenders",
