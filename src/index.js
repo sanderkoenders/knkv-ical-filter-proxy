@@ -20,4 +20,10 @@ app.get('/ical/:token', (req, res) => {
     .catch(() => res.sendStatus(500));
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+const server = app.listen(port, () => console.log(`Listening on port ${port}`));
+
+process.on('SIGINT', () => {
+  console.log('Gracefully shutting down your express server');
+  
+  server.close();
+});
