@@ -11,6 +11,8 @@ app.get('/ical/:token', (req, res) => {
   const token = req.params.token;
   const excludeWords = req.query.exclude.split(',');
 
+  res.setHeader('Content-Type', 'text/calendar');
+
   fetch(`https://data.sportlink.com/ical-person?token=${ token }`)
     .then(response => response.text())
     .then(icalText => ical2json.convert(icalText))
