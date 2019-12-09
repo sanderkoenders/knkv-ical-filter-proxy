@@ -16,6 +16,11 @@ npm i
 npm start
 ```
 
+Or run the application on a different port:
+```bash
+PORT=3000 npm start
+```
+
 ## Docker
 
 ### Create Docker image
