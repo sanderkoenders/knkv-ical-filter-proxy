@@ -32,10 +32,3 @@ Or run on a different port inside the container (for whatever reason)
 ```bash
 docker run -p 3000:3000 -e PORT=3000 -d knkv-ical-filter-proxy
 ```
-
-# Known issues
-The dependency for converting and reverting from and to ics does currently not support RDATE.
-There is a pull-request to add support for RDATE but for now this project is using a git repo
-in order to get a fixed version of the library instead of the official one.
-
-https://github.com/adrianlee44/ical2json/pull/23
