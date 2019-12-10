@@ -11,7 +11,6 @@ COPY package.json package-lock.json ./
 
 # Install dependencies
 RUN apk update && apk upgrade &&\
-    apk add --no-cache git &&\
     rm -rf /var/cache/apk/* &&\
     npm i
 
