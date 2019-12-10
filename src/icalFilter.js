@@ -3,11 +3,11 @@ const filterVEvents = (vEvents, word) => vEvents.filter((vEvent) => !vEvent.SUMM
 const filterVCalendarEvents = (vCalendarJson, excludeWords) => {
   const newVCalendar = { ...vCalendarJson };
 
-  newVCalendar.VEVENT = [];
-
   excludeWords.forEach((word) => {
-    newVCalendar.VEVENT.push(filterVEvents(vCalendarJson.VEVENT, word));
+    newVCalendar.VEVENT = filterVEvents(newVCalendar.VEVENT, word);
   });
+
+  console.log(newVCalendar.VEVENT);
 
   return newVCalendar;
 };
