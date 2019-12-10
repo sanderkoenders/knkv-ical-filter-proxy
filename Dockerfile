@@ -10,7 +10,10 @@ EXPOSE 8080
 COPY package.json package-lock.json ./
 
 # Install dependencies
-RUN npm i
+RUN apk update && apk upgrade &&\
+    apk add --no-cache git &&\
+    rm -rf /var/cache/apk/* &&\
+    npm i
 
 # Copy the application and build the webpack bundle
 COPY . ./
