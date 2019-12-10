@@ -1,17 +1,21 @@
-module.exports = (icalJson, excludeWords) => {
-  icalJson.VCALENDAR[0] = filterVCalendarEvents(icalJson.VCALENDAR[0], excludeWords);
-
-  return icalJson;
-}
+const filterVEvents = (vEvents, word) => vEvents.filter((vEvent) => !vEvent.SUMMARY.includes(word));
 
 const filterVCalendarEvents = (vCalendarJson, excludeWords) => {
-  excludeWords.forEach(word => {
-    vCalendarJson.VEVENT = filterVEvents(vCalendarJson.VEVENT, word);
+  const newVCalendar = { ...vCalendarJson };
+
+  newVCalendar.VEVENT = [];
+
+  excludeWords.forEach((word) => {
+    newVCalendar.VEVENT.push(filterVEvents(vCalendarJson.VEVENT, word));
   });
 
-  return vCalendarJson;
-}
+  return newVCalendar;
+};
 
-const filterVEvents = (vEvents, word) => {
-  return vEvents.filter(vEvent => !vEvent.SUMMARY.includes(word));
-} 
+module.exports = (icalJson, excludeWords) => {
+  const newIcalJson = { ...icalJson };
+
+  newIcalJson.VCALENDAR[0] = filterVCalendarEvents(icalJson.VCALENDAR[0], excludeWords);
+
+  return icalJson;
+};
