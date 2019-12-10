@@ -12,7 +12,7 @@ COPY package.json package-lock.json ./
 # Install dependencies
 RUN apk update && apk upgrade &&\
     rm -rf /var/cache/apk/* &&\
-    npm i
+    npm i --production
 
 # Copy the application and build the webpack bundle
 COPY . ./
