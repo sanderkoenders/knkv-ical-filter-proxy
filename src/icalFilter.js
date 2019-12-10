@@ -7,8 +7,6 @@ const filterVCalendarEvents = (vCalendarJson, excludeWords) => {
     newVCalendar.VEVENT = filterVEvents(newVCalendar.VEVENT, word);
   });
 
-  console.log(newVCalendar.VEVENT);
-
   return newVCalendar;
 };
 
