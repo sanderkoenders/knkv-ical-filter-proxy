@@ -20,7 +20,7 @@ jobs:
     
     # Public to NPM registry
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: archcry/knkv-ical-filter-proxy
         username: ${{ secrets.DOCKER_USERNAME }}
